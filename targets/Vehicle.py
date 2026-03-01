@@ -6,3 +6,9 @@ class Vehicle(Target):
         msg = f"Puerta abierta {peticio}!"
         print(msg)
         return msg
+    
+if __name__ == "__main__":
+    # prueba rápida del vehículo
+    vehicle = Vehicle()
+    usuario = "Javier"
+    vehicle.execucio(usuario)

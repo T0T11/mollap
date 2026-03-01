@@ -14,3 +14,18 @@ class Mollapp:
         if self._programador is None:
             raise RuntimeError("Programador de tasques no configurado")
         return self._programador.executar(peticio)
+
+if __name__ == "__main__":
+    # prueba rápida de la clase Mollapp con un programador de tareas de prueba
+    from filtros.autenticacio_autorizacio import Autenticacio
+    from targets.Vehicle import Vehicle
+
+    target = Vehicle()
+    programador = ProgramadorTasques(target)
+    programador.set_tasca(Autenticacio())
+
+    client = Mollapp()
+    client.set_programador_tasques(programador)
+
+    usuario = "Francesc"
+    client.enviar_peticio(usuario)
