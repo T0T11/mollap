@@ -1,23 +1,26 @@
-from src.Vehiculo import Vehiculo
-from src.Autenticaciones import Autenticacion, Autorizacion
-from src.ProgramadorTasques import ProgramadorTasques
-from src.Mollapp import Mollapp
+from targets.Vehicle import Vehicle
+from filtros.autenticacio_autorizacio import Autenticacio, Autoritzacio
+from core.ProgramadorTasques import ProgramadorTasques
+from core.Mollapp import Mollapp
 
 
 def main():
     # montar un pequeño escenario siguiendo el diagrama UML
-    target = Vehiculo()
+    target = Vehicle()
     programador = ProgramadorTasques(target)
 
     # añadir filtros de autenticación y autorización
-    programador.set_tasca(Autenticacion())
-    programador.set_tasca(Autorizacion())
+    programador.set_tasca(Autenticacio())
+    programador.set_tasca(Autoritzacio())
 
     client = Mollapp()
     client.set_programador_tasques(programador)
 
-    resultado = client.enviar_peticio("iniciar motor")
-    print(resultado)
+    usuario = "Francesc"
+    # el programador y los filtros ya generan salida en consola; el vehículo
+    # también imprime su propio mensaje. no necesitamos imprimir el valor
+    # de retorno aquí.
+    _ = client.enviar_peticio(usuario)
 
 
 if __name__ == "__main__":

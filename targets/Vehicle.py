@@ -1,4 +1,8 @@
 from targets.Target import Target
+
 class Vehicle(Target):
-    def execucio(self, peticio: str) -> None:
-        print(f"Vehicle ejecutando: {peticio}")
+    def execucio(self, peticio: str) -> str:
+        # simular envío de señal inalámbrica para abrir la puerta
+        msg = f"Puerta abierta {peticio}!"
+        print(msg)
+        return msg
