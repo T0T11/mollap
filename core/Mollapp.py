@@ -7,12 +7,12 @@ class Mollapp:
     def __init__(self):
         self._programador: Optional[ProgramadorTasques] = None  # anotación de tipo: puede ser None inicialmente
 
-    def set_programador_tasques(self, programador: ProgramadorTasques) -> None:
+    def set_programador_tasques(self, programador: ProgramadorTasques) -> None: # 
         self._programador = programador
 
     def enviar_peticio(self, peticio: str) -> str:
         if self._programador is None:
-            raise RuntimeError("Programador de tasques no configurado")
+            raise RuntimeError("Programador de tasques no configurado") # raise para indicar que el programador no ha sido configurado
         return self._programador.executar(peticio)
 
 if __name__ == "__main__":
